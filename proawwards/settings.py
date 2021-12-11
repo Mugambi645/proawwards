@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'homepage',
     'users',
     "bootstrap3",
+    'star_ratings'
+
 ]
 
 MIDDLEWARE = [

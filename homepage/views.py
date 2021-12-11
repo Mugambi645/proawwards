@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from .models import Projects
-from .forms import ProjectForm
+from .models import Projects,Review
+from .forms import ProjectForm,RateForm
 # Create your views here.
 def index(request):
     """
@@ -24,3 +24,8 @@ def new_project(request):
     else:
         form = ProjectForm()
     return render(request,'projects/new_project.html',{'form':form})    
+
+def projects(request,id):
+    project = Projects.objects.get(id = id)
+    return render(request,'projects/read_more.html',{"projects":project})
+ 

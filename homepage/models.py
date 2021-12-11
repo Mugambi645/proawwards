@@ -38,14 +38,13 @@ RATE_CHOICES = [
 (3,'3- Terrible'),
 (4,'4- Bad'),
 (5,'5- Ok'),
-(6,'6- Presentable'),
+(6,'6- Watchable'),
 (7,'7- Good'),
-(8,'8- Amazing'),
-(9,'9- Perfect'),
-(10,'10- Veteran!'),
+(8,'8- Very Good'),
+(9,'9- perfect'),
+(10,'10- Master Piece'),
 ]
-
-class Revieww(models.Model):
+class Review(models.Model):
     """
     model class to create reviews
     """
