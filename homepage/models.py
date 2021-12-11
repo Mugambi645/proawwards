@@ -44,3 +44,22 @@ RATE_CHOICES = [
 (9,'9- Perfect'),
 (10,'10- Veteran!'),
 ]
+
+class Revieww(models.Model):
+    """
+    model class to create reviews
+    """
+    projects = models.ForeignKey(Projects,on_delete = models.CASCADE)
+    date = models.DateField(auto_now_add=True)
+    text = models.TextField(max_length=3000,blank=True)
+    design = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default= 0)
+    usability = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default = 0)
+    content = models.PositiveSmallIntegerField(choices = RATE_CHOICES,default = 0)
+    
+
+
+    def __str__(self):
+        """
+        returns a stringified representation of the object
+        """
+        return self.projects
