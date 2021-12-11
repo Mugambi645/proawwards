@@ -1,7 +1,13 @@
 <div class="" style="font-family: 'Jost', sans-serif;">
     {%extends 'base.html'%}
     {%block content%}
+    <style>
+        body {
+            background-color: #c2c5aa;
+        }
+    </style>
     {% include "home/navbar.html" %}
+    <body>
     <div class="container-fluid">
 
         <div class="jumbotron jumbotron-fluid">
@@ -32,6 +38,6 @@
             {%endfor%}
         </div>
     </div>
-
+</body>
     {%endblock%}
 </div>
