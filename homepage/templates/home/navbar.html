@@ -42,12 +42,16 @@
         </form>
    
         <div class="nav-item dropdown" style="margin-right: 2rem;">
+         
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false;">
-                
-                 <img src="{{user.profile.photo.url }}" style=" width: 70px; height: 60px; border-radius: 40%;" alt="">
+              
+                 <p>{{user.username}}</p>
             </a>
+        
+            
             <ul  class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-right: 1.5rem;">
-                {% if user.is_authenticated %}
+              
+              {% if user.is_authenticated %}
               <li><a class="dropdown-item" style="margin-right: 1rem;" href="{% url 'users:profile' %}">Profile</a></li>
               <li><a class="dropdown-item" style="margin-right: 1rem;" href="{% url 'logout' %}">Logout</a></li>
               
