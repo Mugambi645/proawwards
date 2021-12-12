@@ -1,6 +1,6 @@
 
     {% extends 'base.html'%}
-
+{% load ratings %}
     {%block content%}
     {% include "home/navbar.html" %}
     <style>
@@ -41,16 +41,16 @@
             <div class="row">
                 <div class="col-sm">
                     <h4>Usability</h4>
-          
+          {% ratings projects %}
                     <h4>Usability</h4>
                 </div>
                 <div class="col-sm">
                     <h4>Design</h4>
-                 
+                 {% ratings projects %}
                 </div>
                 <div class="col-sm">
                     <h4>Content</h4>
-       
+       {% ratings projects %}
                 </div>
             </div>
             <a href="{% url 'homepage:rate' projects.id %}" class="h1">Review</a>

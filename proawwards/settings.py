@@ -40,9 +40,8 @@ INSTALLED_APPS = [
     'homepage',
     'users',
     "bootstrap3",
-    'star_ratings',
     'rest_framework',
-
+    'star_ratings',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
