@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Projects,Review
 from .forms import ProjectForm,RateForm
+from users.models import Profile
 # Create your views here.
 def index(request):
     """
@@ -15,10 +16,13 @@ def new_project(request):
     Args:
     request: HttpRequest object containing data about this function
     """
+    current_user = request.user
+    user_profile = Profile.objects.get(user = current_user)
     if request.method == 'POST':
         form = ProjectForm(request.POST,request.FILES)
         if form.is_valid:
             new_proj = form.save(commit = False)
+            new_proj.user = user_profile
             new_proj.save()
         return redirect('homepage:index')  
     else:

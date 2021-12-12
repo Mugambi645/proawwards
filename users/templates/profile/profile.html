@@ -1,0 +1,31 @@
+
+    {%include 'base.html'%}
+    {%block content%}
+    <li><button class="btn btn-primary" style="margin-left: 4rem;" href="{% url 'homepage:index' %}"><<>Go Home</button></li>
+
+    <div class="col-sm-6 m-auto " style="font-family: 'Jost', sans-serif;">
+        <div class=" content-section container" style="padding-top: 100px;">
+            <div class="media">
+                <div class="col-sm-4">
+                    <div style="width: 150px; height:150px; overflow:hidden; border-radius:50%" class="img-wrapper">
+                        <img width="120%" height="120%" src="{{profile.photo.url }}" alt="profile">
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h2 class="account-heading">{{user.username}}</h2>
+                    <p class="text-secondary">{{user.email}}</p>
+                    <p>{{profile.user_bio}}</p>
+                    <hr>
+
+                    <a href="{% url  'users:edit_profile' %}">
+                        <button class="btn btn-primary">Edit Profile</button>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {%endblock%}
+</div>

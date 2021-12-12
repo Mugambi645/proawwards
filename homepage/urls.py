@@ -5,5 +5,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path('new/',views.new_project, name = 'new_project'),
     path('projects/<id>/',views.projects, name = 'projects'),
+    
     path(r'ratings/', include('star_ratings.urls', namespace='ratings')),
 ]

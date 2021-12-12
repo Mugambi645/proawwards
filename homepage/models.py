@@ -1,5 +1,5 @@
 from django.db import models
-
+from users.models import Profile
 # Create your models here.
 class Projects(models.Model):
     """
@@ -9,7 +9,7 @@ class Projects(models.Model):
     description = models.TextField(max_length=300)
     project_image = models.ImageField(upload_to='images')
     project_link = models.URLField(max_length=200)
-    #user = models.ForeignKey(Profile, on_delete=models.CASCADE, default='', null=True ,related_name='author')
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, default='', null=True ,related_name='author')
     date_created= models.DateField(auto_now_add=True )
 
     def save_projects(self):

@@ -48,8 +48,8 @@
             </a>
             <ul  class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-right: 1.5rem;">
                 {% if user.is_authenticated %}
-              <li><a class="dropdown-item" style="margin-right: 1rem;" href="#">Profile</a></li>
-              <li><a class="dropdown-item" style="margin-right: 1rem;" href="#">Logout</a></li>
+              <li><a class="dropdown-item" style="margin-right: 1rem;" href="{% url 'users:profile' %}">Profile</a></li>
+              <li><a class="dropdown-item" style="margin-right: 1rem;" href="{% url 'logout' %}">Logout</a></li>
               
               <li><hr class="dropdown-divider"></li>
               {% else %}
