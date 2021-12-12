@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users',
     "bootstrap3",
     'star_ratings',
+    'rest_framework',
 
 ]
 

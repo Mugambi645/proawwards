@@ -7,7 +7,9 @@ from django.views.decorators.csrf import csrf_protect
 from .forms import UserUpdateForm,UpdateUserProfileForm
 from django.contrib.auth.decorators import login_required 
 from .models import Profile
-
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer
 from django.contrib.auth.models import User
 @csrf_protect
 def register(request):
@@ -21,7 +23,7 @@ def register(request):
     context['form']=form
     return render(request,'registration/register.html',context)
 @login_required
-def profile(request,id):
+def profile(request):
     """[Profile]
 
     Args:
@@ -31,9 +33,8 @@ def profile(request,id):
     Returns:
         [type]: [description]
     """
-    prof = Profile.objects.get(user = id)
-    return render(request,'profile/profile.html',{"profile":prof})
-
+    prof = Profile.objects.all()
+    return render(request,'profile/profile.html', {"profile": prof})
 
 
 def edit_profile(request):
@@ -46,7 +47,7 @@ def edit_profile(request):
         if user_form.is_valid() and prof_form.is_valid():
             user_form.save()
             prof_form.save()
-            return redirect('users:profile', user.id)
+            return redirect('users:profile')
     else:
         user_form = UserUpdateForm(instance=request.user)
         prof_form = UpdateUserProfileForm(instance=request.user.profile)
@@ -59,3 +60,11 @@ def edit_profile(request):
 
 
 # Update it here
+
+
+
+class ProfileList(APIView):
+    def get(self,request,format = None):
+        all_profile = Profile.objects.all()
+        serializerdata = ProfileSerializer(all_profile,many = True)
+        return Response(serializerdata.data)
