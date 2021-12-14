@@ -9,15 +9,23 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-import os
-from pathlib import Path
-import django_heroku
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import os
+from pathlib import Path
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+import os
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
+
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', False)
@@ -57,21 +65,16 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-#BASE_DIR = Path(__file__).resolve().parent.parent
-
-
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pv)6m6#zg(l2-^h_=xh-^ty*mpki!m$*3)16p3#tit4ekbbshh'
+SECRET_KEY = 'django-insecure-!h(1qwe$-ml2$jxgt+x5!x_lfm%o#@idfr$p5=+=z82oqw8h8='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
