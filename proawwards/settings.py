@@ -106,7 +106,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-ROOT_URLCONF = 'instagram.urls'
+ROOT_URLCONF = 'proawwards.urls'
 
 TEMPLATES = [
     {
@@ -124,7 +124,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'instagram.wsgi.application'
+WSGI_APPLICATION = 'proawwards.wsgi.application'
 
 cloudinary.config( 
   cloud_name = "dgjtu9gvn", 
