@@ -28,7 +28,4 @@ class Profile(models.Model):
     def search_profile(cls, name):
         return cls.objects.filter(user__username__icontains=name).all()
     
-    @property
-    def photo_url(self):
-        if self.image and hasattr(self.photo, 'url'):
-            return self.photo.url
+  
